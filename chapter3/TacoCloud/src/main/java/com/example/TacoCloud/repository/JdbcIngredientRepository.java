@@ -11,13 +11,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class JdbcIngredientRepository implements IngredientRepository{
+public class JdbcIngredientRepository implements IngredientRepository {
     private JdbcTemplate jdbcTemplate;
 
     public JdbcIngredientRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    // use JdbcTemplate to query database
     @Override
     public Iterable<Ingredient> findAll(){
         return jdbcTemplate.query("select id, name, type from Ingredient",
@@ -40,6 +41,18 @@ public class JdbcIngredientRepository implements IngredientRepository{
         return new Ingredient(row.getString("id"),
                 row.getString("name"),
                 Ingredient.Type.valueOf(row.getString("type")));
+    }
+
+    // use JdbcTemplate to insert data
+    @Override
+    public Ingredient save(Ingredient ingredient){
+        jdbcTemplate.update(
+                "insert into Ingredient (id, name, type) values (?, ?, ?)",
+                ingredient.getId(),
+                ingredient.getName(),
+                ingredient.getType().toString()
+        );
+        return ingredient;
     }
 
 
