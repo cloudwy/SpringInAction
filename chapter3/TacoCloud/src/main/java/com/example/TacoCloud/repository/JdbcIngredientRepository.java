@@ -1,6 +1,7 @@
 package com.example.TacoCloud.repository;
 
 import com.example.TacoCloud.model.Ingredient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +15,7 @@ import java.util.Optional;
 public class JdbcIngredientRepository implements IngredientRepository {
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
     public JdbcIngredientRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -38,7 +40,8 @@ public class JdbcIngredientRepository implements IngredientRepository {
     }
 
     private Ingredient mapRowToIngredient(ResultSet row, int rowNum) throws SQLException {
-        return new Ingredient(row.getString("id"),
+        return new Ingredient(
+                row.getString("id"),
                 row.getString("name"),
                 Ingredient.Type.valueOf(row.getString("type")));
     }
