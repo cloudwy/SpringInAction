@@ -5,7 +5,7 @@ import com.example.TacoCloud.model.Ingredient.Type;
 import com.example.TacoCloud.model.Taco;
 import com.example.TacoCloud.model.TacoOrder;
 
-import com.example.TacoCloud.repository.IngredientRepository;
+import com.example.TacoCloud.data.IngredientRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 

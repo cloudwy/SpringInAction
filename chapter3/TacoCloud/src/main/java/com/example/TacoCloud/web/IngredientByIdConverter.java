@@ -1,7 +1,7 @@
 package com.example.TacoCloud.web;
 
 import com.example.TacoCloud.model.Ingredient;
-import com.example.TacoCloud.repository.IngredientRepository;
+import com.example.TacoCloud.data.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

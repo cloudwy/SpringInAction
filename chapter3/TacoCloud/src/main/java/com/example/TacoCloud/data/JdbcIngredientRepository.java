@@ -1,5 +1,6 @@
-package com.example.TacoCloud.repository;
+package com.example.TacoCloud.data;
 
+import com.example.TacoCloud.data.IngredientRepository;
 import com.example.TacoCloud.model.Ingredient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -7,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLWarning;
 import java.util.List;
 import java.util.Optional;
 
