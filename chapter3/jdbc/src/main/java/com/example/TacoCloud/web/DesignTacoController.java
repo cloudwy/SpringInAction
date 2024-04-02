@@ -24,16 +24,18 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/design")
 public class DesignTacoController {
+
     private final IngredientRepository ingredientRepo;
 
     @Autowired
-    public DesignTacoController(IngredientRepository ingredientRepo){
+    public DesignTacoController(
+            IngredientRepository ingredientRepo){
         this.ingredientRepo = ingredientRepo;
     }
 
     @ModelAttribute
     public void addIngredientsToModel(Model model){
-//        Iterable<Ingredient> ingredients = ingredientRepo.findAll(); //
+//        Iterable<Ingredient> ingredients = ingredientRepo.findAll();
         List<Ingredient> ingredients = new ArrayList<>();
         ingredientRepo.findAll().forEach(i -> ingredients.add(i));
         Type[] types = Ingredient.Type.values();
@@ -60,7 +62,9 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processTaco(@Valid Taco taco, Errors errors, @ModelAttribute TacoOrder tacoOrder){
+    public String processTaco(
+            @Valid Taco taco, Errors errors,
+            @ModelAttribute TacoOrder tacoOrder){
         if(errors.hasErrors()){
             return "design";
         }
@@ -71,9 +75,11 @@ public class DesignTacoController {
         return "redirect:/orders/current";
     }
 
-    private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
+    private Iterable<Ingredient> filterByType(
+            List<Ingredient> ingredients, Type type) {
 
-        return ingredients.stream()
+        return ingredients
+                .stream()
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
 
