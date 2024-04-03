@@ -1,31 +1,36 @@
 package com.example;
 
-import io.micronaut.http.HttpRequest;
-import io.micronaut.http.MediaType;
-import io.micronaut.http.client.HttpClient;
-import io.micronaut.http.client.annotation.Client;
+
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
+import jakarta.inject.Inject;
+import jakarta.validation.ConstraintViolationException;
 import org.junit.jupiter.api.Test;
 
-import jakarta.inject.Inject;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@MicronautTest
-class HomeControllerTest {
+@MicronautTest(startApplication = false)
+class MessageServiceTest {
 
     @Inject
-    @Client("/")
-    HttpClient client;
+    MessageService service;
 
     @Test
-    public void testHello() {
-        HttpRequest<?> request = HttpRequest.GET("/hello").accept(MediaType.TEXT_PLAIN);
-        String body = client.toBlocking().retrieve(request);
-
-        assertNotNull(body);
-        assertEquals("home", body);
+    void testItWorks() {
+        assertEquals("Hello Tim!", service.sayHello("Tim"));
     }
 
+    @Test
+    void testValidationWithNull() {
+        ConstraintViolationException exception = assertThrows(ConstraintViolationException.class, () -> service.sayHello(null));
+        assertEquals(1, exception.getConstraintViolations().size());
+        assertEquals("sayHello.name: must not be blank", exception.getLocalizedMessage());
+    }
+
+    @Test
+    void testValidationWithBlank() {
+        ConstraintViolationException exception = assertThrows(ConstraintViolationException.class, () -> service.sayHello("   "));
+        assertEquals(1, exception.getConstraintViolations().size());
+        assertEquals("sayHello.name: must not be blank", exception.getMessage());
+    }
 }
