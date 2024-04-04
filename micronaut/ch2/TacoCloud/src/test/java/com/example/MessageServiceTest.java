@@ -1,6 +1,7 @@
 package com.example;
 
 
+import com.example.web.MessageService;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import jakarta.inject.Inject;
 import jakarta.validation.ConstraintViolationException;
