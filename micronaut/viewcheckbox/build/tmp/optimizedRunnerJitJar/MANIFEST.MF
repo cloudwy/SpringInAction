@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Main-Class: example.micronaut.Application
+Class-Path: libs/micronaut-serde-jackson-2.8.2.jar libs/micronaut-views-
+ fieldset-5.1.0.jar libs/micronaut-views-thymeleaf-5.1.0.jar libs/micron
+ aut-serde-support-2.8.2.jar libs/micronaut-serde-api-2.8.2.jar libs/mic
+ ronaut-validation-4.4.4.jar libs/micronaut-views-core-5.1.0.jar libs/mi
+ cronaut-reactor-3.2.1.jar libs/micronaut-http-client-4.3.12.jar libs/mi
+ cronaut-websocket-4.3.12.jar libs/micronaut-http-server-netty-4.3.12.ja
+ r libs/micronaut-http-netty-4.3.12.jar libs/micronaut-http-server-4.3.1
+ 2.jar libs/micronaut-jackson-core-4.3.12.jar libs/micronaut-json-core-4
+ .3.12.jar libs/micronaut-router-4.3.12.jar libs/micronaut-http-4.3.12.j
+ ar libs/micronaut-http-client-core-4.3.12.jar libs/micronaut-discovery-
+ core-4.3.12.jar libs/micronaut-context-propagation-4.3.12.jar libs/micr
+ onaut-context-4.3.12.jar libs/micronaut-aop-4.3.12.jar libs/micronaut-b
+ uffer-netty-4.3.12.jar libs/micronaut-inject-4.3.12.jar libs/logback-cl
+ assic-1.4.14.jar libs/jackson-annotations-2.16.1.jar libs/jackson-core-
+ 2.16.1.jar libs/jakarta.annotation-api-2.1.1.jar libs/netty-handler-pro
+ xy-4.1.108.Final.jar libs/netty-codec-http2-4.1.108.Final.jar libs/nett
+ y-codec-http-4.1.108.Final.jar libs/netty-codec-socks-4.1.108.Final.jar
+  libs/netty-handler-4.1.108.Final.jar libs/netty-codec-4.1.108.Final.ja
+ r libs/netty-transport-native-unix-common-4.1.108.Final.jar libs/netty-
+ transport-4.1.108.Final.jar libs/netty-buffer-4.1.108.Final.jar libs/ne
+ tty-resolver-4.1.108.Final.jar libs/netty-common-4.1.108.Final.jar libs
+ /reactor-core-3.6.1.jar libs/micronaut-core-reactive-4.3.12.jar libs/re
+ active-streams-1.0.4.jar libs/micronaut-core-4.3.12.jar libs/logback-co
+ re-1.4.14.jar libs/thymeleaf-extras-java8time-3.0.4.RELEASE.jar libs/th
+ ymeleaf-3.1.2.RELEASE.jar libs/slf4j-api-2.0.12.jar libs/jakarta.valida
+ tion-api-3.0.2.jar libs/jakarta.inject-api-2.0.1.jar libs/ognl-3.3.4.ja
+ r libs/attoparser-2.0.7.RELEASE.jar libs/unbescape-1.1.6.RELEASE.jar li
+ bs/javassist-3.29.0-GA.jar resources/ classes/
+

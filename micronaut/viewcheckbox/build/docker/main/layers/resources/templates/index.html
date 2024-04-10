@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form with Checkbox and Attribute</title>
+</head>
+<body>
+<h1>Form with Checkbox and Attribute</h1>
+<form action="/submitForm" method="post">
+    <!-- 复选框 -->
+    <input th:field="*{subscribe}" type="checkbox" id="subscribeCheckbox">
+    <!-- 复选框标签 -->
+    <label for="subscribeCheckbox">Subscribe to newsletter</label>
+    <br>
+    <!-- 属性输入框 -->
+    <input type="text" th:field="*{attribute}" id="attributeInput" placeholder="Enter attribute">
+    <br>
+    <!-- 提交按钮 -->
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

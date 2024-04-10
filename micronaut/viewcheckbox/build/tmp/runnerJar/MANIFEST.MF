@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Class-Path: resources/ classes/ libs/micronaut-serde-jackson-2.8.2.jar l
+ ibs/micronaut-views-fieldset-5.1.0.jar libs/micronaut-views-thymeleaf-5
+ .1.0.jar libs/micronaut-serde-support-2.8.2.jar libs/micronaut-serde-ap
+ i-2.8.2.jar libs/micronaut-validation-4.4.4.jar libs/micronaut-views-co
+ re-5.1.0.jar libs/micronaut-reactor-3.2.1.jar libs/micronaut-http-clien
+ t-4.3.12.jar libs/micronaut-websocket-4.3.12.jar libs/micronaut-http-se
+ rver-netty-4.3.12.jar libs/micronaut-http-netty-4.3.12.jar libs/microna
+ ut-http-server-4.3.12.jar libs/micronaut-jackson-core-4.3.12.jar libs/m
+ icronaut-json-core-4.3.12.jar libs/micronaut-router-4.3.12.jar libs/mic
+ ronaut-http-4.3.12.jar libs/micronaut-http-client-core-4.3.12.jar libs/
+ micronaut-discovery-core-4.3.12.jar libs/micronaut-context-propagation-
+ 4.3.12.jar libs/micronaut-context-4.3.12.jar libs/micronaut-aop-4.3.12.
+ jar libs/micronaut-buffer-netty-4.3.12.jar libs/micronaut-inject-4.3.12
+ .jar libs/logback-classic-1.4.14.jar libs/jackson-annotations-2.16.1.ja
+ r libs/jackson-core-2.16.1.jar libs/jakarta.annotation-api-2.1.1.jar li
+ bs/netty-handler-proxy-4.1.108.Final.jar libs/netty-codec-http2-4.1.108
+ .Final.jar libs/netty-codec-http-4.1.108.Final.jar libs/netty-codec-soc
+ ks-4.1.108.Final.jar libs/netty-handler-4.1.108.Final.jar libs/netty-co
+ dec-4.1.108.Final.jar libs/netty-transport-native-unix-common-4.1.108.F
+ inal.jar libs/netty-transport-4.1.108.Final.jar libs/netty-buffer-4.1.1
+ 08.Final.jar libs/netty-resolver-4.1.108.Final.jar libs/netty-common-4.
+ 1.108.Final.jar libs/reactor-core-3.6.1.jar libs/micronaut-core-reactiv
+ e-4.3.12.jar libs/reactive-streams-1.0.4.jar libs/micronaut-core-4.3.12
+ .jar libs/logback-core-1.4.14.jar libs/thymeleaf-extras-java8time-3.0.4
+ .RELEASE.jar libs/thymeleaf-3.1.2.RELEASE.jar libs/slf4j-api-2.0.12.jar
+  libs/jakarta.validation-api-3.0.2.jar libs/jakarta.inject-api-2.0.1.ja
+ r libs/ognl-3.3.4.jar libs/attoparser-2.0.7.RELEASE.jar libs/unbescape-
+ 1.1.6.RELEASE.jar libs/javassist-3.29.0-GA.jar
+Main-Class: example.micronaut.Application
+

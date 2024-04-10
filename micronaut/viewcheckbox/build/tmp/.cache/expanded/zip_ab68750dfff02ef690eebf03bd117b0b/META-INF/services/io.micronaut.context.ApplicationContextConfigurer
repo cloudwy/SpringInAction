@@ -1,0 +1,3 @@
+example.micronaut.DeducedEnvironmentConfigurer
+example.micronaut.NettyPropertiesAOTContextConfigurer
+example.micronaut.AOTApplicationContextConfigurer
