@@ -5,31 +5,29 @@ import io.micronaut.core.annotation.Introspected;
 import io.micronaut.core.annotation.ReflectiveAccess;
 import io.micronaut.serde.annotation.Serdeable;
 
-@Introspected
-@ReflectiveAccess
 @Serdeable
 public class FormData {
-    @JsonProperty
-    boolean subscribeCheckBox;
-    @JsonProperty
+//    @JsonProperty
+    String subscribeCheckBox;
+//    @JsonProperty
     String attributeInput;
 
     public FormData() {
     }
 
     public FormData(
-            boolean subscribeCheckBox,
+            String subscribeCheckBox,
             String attributeInput) {
         this.subscribeCheckBox = subscribeCheckBox;
         this.attributeInput = attributeInput;
     }
 
     // Getter and setter for 'subscribe' property
-    public boolean isSubscribeCheckBox() {
+    public String getSubscribeCheckBox() {
         return subscribeCheckBox;
     }
 
-    public void setSubscribeCheckBox(boolean subscribeCheckBox) {
+    public void setSubscribeCheckBox(String subscribeCheckBox) {
         this.subscribeCheckBox = subscribeCheckBox;
     }
 

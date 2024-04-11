@@ -13,12 +13,6 @@ import java.util.Map;
 @Controller
 public class FormController {
 
-    private final ObjectMapper objectMapper;
-
-    public FormController(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
-    }
-
     @Get("/")
     @View("forms/index.html")
     public ModelAndView index() {
@@ -33,14 +27,13 @@ public class FormController {
     public HttpResponse<String> submitForm(
             @Body FormData formData
     ){
-//      final FormData formData = objectMapper.readValue(data, FormData.class);
-//        boolean subscribe = formData.isSubscribeCheckBox();
+        System.out.println("subscribe: " + formData.getSubscribeCheckBox() + " " + "attrinbute: " + formData.getAttributeInput());
+        String subscribe = formData.getSubscribeCheckBox();
         String attribute = formData.getAttributeInput();
-//        if (subscribe) {
-//            return HttpResponse.ok("User subscribed to newsletter with attribute: " + attribute);
-//        } else {
-//            return HttpResponse.ok("User did not subscribe to newsletter with attribute: " + attribute);
-//        }
-        return HttpResponse.ok("hello");
+        if (subscribe == null) {
+            return HttpResponse.ok("User did not subscribe to newsletter with attribute: " + attribute);
+        } else {
+            return HttpResponse.ok("Use subscribed to newsletter with attribute: " + attribute);
+        }
     }
 }
