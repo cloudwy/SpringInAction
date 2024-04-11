@@ -13,13 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package photoexample;
+package example.micronaut.photoexample;
 
 import io.micronaut.core.annotation.Blocking;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.client.annotation.Client;
-import photoexample.Photo;
 
 @Client(id = "photos") // <1>
 public interface PhotosClient {

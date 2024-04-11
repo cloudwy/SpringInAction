@@ -9,35 +9,37 @@ import io.micronaut.serde.annotation.Serdeable;
 @ReflectiveAccess
 @Serdeable
 public class FormData {
+//    @JsonProperty
+//    boolean subscribeCheckBox;
     @JsonProperty
-    boolean subscribe;
-    @JsonProperty
-    String attribute;
+    String attributeInput;
 
     public FormData() {
     }
 
-    public FormData(boolean subscribe, String attribute) {
-        this.subscribe = subscribe;
-        this.attribute = attribute;
+    public FormData(
+//            boolean subscribeCheckBox,
+            String attributeInput) {
+//        this.subscribeCheckBox = subscribeCheckBox;
+        this.attributeInput = attributeInput;
     }
 
     // Getter and setter for 'subscribe' property
-    public boolean isSubscribe() {
-        return subscribe;
-    }
+//    public boolean isSubscribeCheckBox() {
+//        return subscribeCheckBox;
+//    }
 
-    public void setSubscribe(boolean subscribe) {
-        this.subscribe = subscribe;
-    }
+//    public void setSubscribeCheckBox(boolean subscribeCheckBox) {
+//        this.subscribeCheckBox = subscribeCheckBox;
+//    }
 
     // Getter and setter for 'attribute' property
-    public String getAttribute() {
-        return attribute;
+    public String getAttributeInput() {
+        return attributeInput;
     }
 
-    public void setAttribute(String attribute) {
-        this.attribute = attribute;
+    public void setAttributeInput(String attributeInput) {
+        this.attributeInput = attributeInput;
     }
 }
 

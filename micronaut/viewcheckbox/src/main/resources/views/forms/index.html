@@ -1,20 +1,43 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta charset="UTF-8">
     <title>Form with Checkbox and Attribute</title>
 </head>
 <body>
 <h1>Form with Checkbox and Attribute</h1>
-<form action="/submitForm" method="post" th:object="${formData}">
-    <!-- checkbox -->
-    <input th:field="${subscribe}" type="checkbox" id="subscribeCheckbox">
-    <!-- checkbox label -->
-    <label for="subscribeCheckbox">Subscribe to newsletter</label>
-<!--    <br>-->
-    <input type="text" th:field="${attribute}" id="attributeInput" placeholder="Enter attribute">
+<form action="/submitForm" method="post">
+    <!--     checkbox -->
+<!--    <input type="checkbox" id="subscribeCheckbox">-->
+    <!--     checkbox label -->
+<!--    <label for="subscribeCheckbox">Subscribe to newsletter</label>-->
+    <br>
+    <input type="text" name="attributeInput" placeholder="Enter attribute">
     <br>
     <!-- submit button -->
     <button type="submit">Submit</button>
 </form>
 </body>
 </html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Form with Checkbox and Attribute</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Form with Checkbox and Attribute</h1>-->
+<!--<form action="/submitForm" method="post">-->
+<!--    &lt;!&ndash; checkbox &ndash;&gt;-->
+<!--    <input th:field="${subscribe}" type="checkbox" id="subscribeCheckbox">-->
+<!--    &lt;!&ndash; checkbox label &ndash;&gt;-->
+<!--    <label for="subscribeCheckbox">Subscribe to newsletter</label>-->
+<!--&lt;!&ndash;    <br>&ndash;&gt;-->
+<!--    <input type="text" th:field="${attribute}" id="attributeInput" placeholder="Enter attribute">-->
+<!--    <br>-->
+<!--    &lt;!&ndash; submit button &ndash;&gt;-->
+<!--    <button type="submit">Submit</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->

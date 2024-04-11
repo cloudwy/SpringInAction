@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package photoexample;
+package example.micronaut.photoexample;
 
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
@@ -23,8 +23,6 @@ import io.micronaut.http.annotation.Produces;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
 import io.micronaut.views.View;
-import photoexample.Photo;
-import photoexample.PhotosClient;
 
 import java.util.Collections;
 import java.util.Map;

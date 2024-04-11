@@ -28,18 +28,19 @@ public class FormController {
     }
 
     @Post("/submitForm")
-    @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
-    @View("forms/index.html")
+    @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     @Produces(MediaType.TEXT_HTML)
-    public HttpResponse<String> submitForm(@Body FormData form){
-////        final FormData formData = objectMapper.readValue(data, FormData.class);
-//        boolean subscribe = formData.isSubscribe();
-//        String attribute = formData.getAttribute();
+    public HttpResponse<String> submitForm(
+            @Body FormData formData
+    ){
+//      final FormData formData = objectMapper.readValue(data, FormData.class);
+//        boolean subscribe = formData.isSubscribeCheckBox();
+        String attribute = formData.getAttributeInput();
 //        if (subscribe) {
 //            return HttpResponse.ok("User subscribed to newsletter with attribute: " + attribute);
 //        } else {
 //            return HttpResponse.ok("User did not subscribe to newsletter with attribute: " + attribute);
 //        }
-        return null;
+        return HttpResponse.ok("hello");
     }
 }
