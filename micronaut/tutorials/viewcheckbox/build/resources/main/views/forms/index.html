@@ -1,0 +1,43 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Form with Checkbox and Attribute</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Form with Checkbox and Attribute</h1>-->
+<!--<form action="/submitForm" method="post">-->
+<!--    &lt;!&ndash;     checkbox &ndash;&gt;-->
+<!--    <input type="checkbox" name="subscribeCheckBox" id="subscribeCheckbox" value="true">-->
+<!--    &lt;!&ndash;     checkbox label &ndash;&gt;-->
+<!--    <label for="subscribeCheckBox">Subscribe to newsletter</label>-->
+<!--    <br>-->
+<!--    <input type="text" name="attributeInput" placeholder="Enter attribute">-->
+<!--    <br>-->
+<!--    &lt;!&ndash; submit button &ndash;&gt;-->
+<!--    <button type="submit">Submit</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form with Checkbox and Attribute</title>
+</head>
+<body>
+<h1>Form with Checkbox and Attribute</h1>
+<form action="/submitForm" method="post">
+    <!--     checkbox -->
+    <input type="checkbox" th:name="subscribeCheckBox" id="subscribeCheckbox" value="true">
+    <!--     checkbox label -->
+    <label for="subscribeCheckBox">Subscribe to newsletter</label>
+    <br>
+    <input type="text" th:name="attributeInput" placeholder="Enter attribute">
+    <br>
+    <!-- submit button -->
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

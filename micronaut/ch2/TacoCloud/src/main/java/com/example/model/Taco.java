@@ -1,11 +1,20 @@
 package com.example.model;
 
 import java.util.List;
+
+import io.micronaut.core.annotation.ReflectiveAccess;
+import io.micronaut.serde.annotation.Serdeable;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Serdeable
+@AllArgsConstructor
+@NoArgsConstructor
+//@ReflectiveAccess
 public class Taco {
 
     @NotNull

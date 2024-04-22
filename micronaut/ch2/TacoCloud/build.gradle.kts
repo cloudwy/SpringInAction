@@ -24,6 +24,7 @@ dependencies {
     implementation("io.micronaut.validation:micronaut-validation") // related to test2 in MessageServiceTest
     implementation("io.micronaut.views:micronaut-views-fieldset")
     implementation("io.micronaut.views:micronaut-views-thymeleaf")
+//    implementation("org.thymeleaf:thymeleaf:3.0.11.RELEASE")
     // https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
     implementation("jakarta.validation:jakarta.validation-api")
     compileOnly("io.micronaut:micronaut-http-client")
@@ -33,6 +34,13 @@ dependencies {
     implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
     // https://mvnrepository.com/artifact/io.micronaut/micronaut-session
     implementation("io.micronaut:micronaut-session:3.10.4")
+    // ModelAndView
+    // https://mvnrepository.com/artifact/io.micronaut/micronaut-http-server
+    implementation("io.micronaut:micronaut-http-server:4.4.1")
+    // https://mvnrepository.com/artifact/io.micronaut/micronaut-views
+    implementation("io.micronaut:micronaut-views:1.3.2")
+    // core
+    implementation("io.micronaut:micronaut-core")
 }
 
 

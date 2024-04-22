@@ -1,5 +1,6 @@
 package com.example.model;
 
+import io.micronaut.serde.annotation.Serdeable;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import jakarta.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 @Data
+@Serdeable
 public class TacoOrder {
     @NotBlank(message="Delivery name is required")
     private String deliveryName;
