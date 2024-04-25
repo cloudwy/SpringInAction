@@ -8,7 +8,6 @@ import io.micronaut.http.MutableHttpResponse;
 import io.micronaut.http.annotation.*;
 import io.micronaut.views.ModelAndView;
 import io.micronaut.views.View;
-import jakarta.validation.constraints.Null;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,10 +34,7 @@ public class DesignTacoController {
 
     @View("design.html")
     @Get("/design")
-    public ModelAndView index(
-//            Session session
-    ) {
-//        session.put("designOrderModel", designOrderModel);
+    public ModelAndView index() {
         return new ModelAndView("design", designOrderModel.getModel());
     }
 
@@ -46,10 +42,10 @@ public class DesignTacoController {
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
     public MutableHttpResponse<?> processTaco(
             Session session,
-            @Body DesignOrderForm designOrderForm
+            @Body DesignTacoForm designTacoForm
             ) {
         List<Ingredient> convertIngredients = new ArrayList<>();
-        List<String> ingredientsId = designOrderForm.getIngredientsId();
+        List<String> ingredientsId = designTacoForm.getIngredientsId();
         if (ingredientsId.size() != 0) {
             for (String item : ingredientsId) {
                 Optional<Ingredient> rel = ingredientByIdConverter.convert(item, Ingredient.class, ConversionContext.DEFAULT);
@@ -58,19 +54,13 @@ public class DesignTacoController {
                 }
             }
         }
-        Taco taco = new Taco(designOrderForm.getName(), convertIngredients);
+        Taco taco = new Taco(designTacoForm.getName(), convertIngredients);
         designOrderModel.addTacoToOrder(taco);
         log.info("Processing taco: ()", taco);
         // put in session
         session.put("tacoOrder", designOrderModel.getModel().get("tacoOrder"));
         // Redirect in Micronaut
         return HttpResponse.redirect(URI.create("/orders/current"));
-
-//        if (!session.contains("tacoOrder")) {
-//            session.put("tacoOrder", designOrderModel.getModel().get("tacoOrder"));
-//        } else {
-//            // session.put("tacoOrder", designOrderModel.getModel().get("tacoOrder"));
-//        }
     }
 
 }

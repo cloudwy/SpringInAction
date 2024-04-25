@@ -44,4 +44,16 @@ public class TacoOrder {
     public void addTaco(Taco taco) {
         this.tacos.add(taco);
     }
+
+    // 从DesignOrderForm复制属性到TacoOrder
+    public void copyFromDesignOrderForm(DesignOrderForm designOrderForm) {
+        this.deliveryName = designOrderForm.getDeliveryName();
+        this.deliveryStreet = designOrderForm.getDeliveryStreet();
+        this.deliveryCity = designOrderForm.getDeliveryCity();
+        this.deliveryState = designOrderForm.getDeliveryState();
+        this.deliveryZip = designOrderForm.getDeliveryZip();
+        this.ccNumber = designOrderForm.getCcNumber();
+        this.ccExpiration = designOrderForm.getCcExpiration();
+        this.ccCVV = designOrderForm.getCcCVV();
+    }
 }
