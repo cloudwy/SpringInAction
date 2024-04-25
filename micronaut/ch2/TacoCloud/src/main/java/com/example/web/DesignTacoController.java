@@ -36,9 +36,9 @@ public class DesignTacoController {
     @View("design.html")
     @Get("/design")
     public ModelAndView index(
-            Session session
+//            Session session
     ) {
-        session.put("designOrderModel", designOrderModel);
+//        session.put("designOrderModel", designOrderModel);
         return new ModelAndView("design", designOrderModel.getModel());
     }
 
@@ -63,10 +63,8 @@ public class DesignTacoController {
         log.info("Processing taco: ()", taco);
         // put in session
         session.put("tacoOrder", designOrderModel.getModel().get("tacoOrder"));
-//        session.put("testString", "123456");
         // Redirect in Micronaut
         return HttpResponse.redirect(URI.create("/orders/current"));
-//        return HttpResponse.ok(session.get("tacoOrder").orElse(null));
 
 //        if (!session.contains("tacoOrder")) {
 //            session.put("tacoOrder", designOrderModel.getModel().get("tacoOrder"));

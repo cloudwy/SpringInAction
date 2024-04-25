@@ -14,21 +14,26 @@ import io.micronaut.views.ModelAndView;
 import io.micronaut.views.View;
 import lombok.extern.slf4j.Slf4j;
 import jakarta.validation.Valid;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import static io.micronaut.http.MediaType.TEXT_HTML;
 
 @Slf4j
 @Controller("/orders")
 public class OrderController {
-//    @View("orderForm.html")
+    private Map<String, Object> orderModel = new HashMap<>();
+    @View("orderForm.html")
     @Get("/current")
-//    public ModelAndView orderForm(
-    public HttpResponse<?> orderForm(Session session) {
-        if (!session.contains("tacoOrder")) {
-            return HttpResponse.ok("tacoOrder doesn't exist");
-        }else{
-            return HttpResponse.ok(session.get("tacoOrder", TacoOrder.class).toString());
-        }
+    public ModelAndView orderForm(Session session){
+//    public HttpResponse<?> orderForm(Session session) {
+        TacoOrder tacoOrder = session.get("tacoOrder", TacoOrder.class).orElse(new TacoOrder());
+        orderModel.put("tacoOrder", tacoOrder);
+//        System.out.println("tacoOrder Info: " + newModel);
+        return new ModelAndView("order", orderModel);
+//        return HttpResponse.ok(newModel.getTacos().toString());
     }
 
     @Post
