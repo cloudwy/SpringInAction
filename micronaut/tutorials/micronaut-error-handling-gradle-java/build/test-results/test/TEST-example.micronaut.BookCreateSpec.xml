@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="example.micronaut.BookCreateSpec" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-25T13:34:22" hostname="M08337-01.local" time="0.985">
+  <properties/>
+  <testcase name="verify validation in the form works" classname="example.micronaut.BookCreateSpec" time="0.985"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

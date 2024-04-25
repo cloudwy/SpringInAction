@@ -1,0 +1,3 @@
+example.micronaut.KnownMissingTypesOptimizationLoader
+example.micronaut.EnvironmentPropertiesOptimizationLoader
+example.micronaut.PublishersOptimizationsLoader

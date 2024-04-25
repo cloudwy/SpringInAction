@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Class-Path: resources/ classes/ libs/micronaut-serde-jackson-2.9.0.jar l
+ ibs/micronaut-validation-4.5.0.jar libs/micronaut-views-velocity-5.2.1.
+ jar libs/jakarta.validation-api-3.0.2.jar libs/micronaut-serde-support-
+ 2.9.0.jar libs/micronaut-serde-api-2.9.0.jar libs/micronaut-reactor-3.3
+ .0.jar libs/micronaut-views-core-5.2.1.jar libs/micronaut-http-server-n
+ etty-4.4.6.jar libs/micronaut-http-server-4.4.6.jar libs/micronaut-http
+ -netty-4.4.6.jar libs/micronaut-router-4.4.6.jar libs/micronaut-jackson
+ -core-4.4.6.jar libs/micronaut-json-core-4.4.6.jar libs/micronaut-http-
+ 4.4.6.jar libs/micronaut-context-propagation-4.4.6.jar libs/micronaut-c
+ ontext-4.4.6.jar libs/micronaut-buffer-netty-4.4.6.jar libs/micronaut-a
+ op-4.4.6.jar libs/micronaut-inject-4.4.6.jar libs/logback-classic-1.5.3
+ .jar libs/jackson-annotations-2.16.1.jar libs/jackson-core-2.16.1.jar l
+ ibs/jakarta.annotation-api-2.1.1.jar libs/netty-codec-http2-4.1.108.Fin
+ al.jar libs/netty-codec-http-4.1.108.Final.jar libs/netty-handler-4.1.1
+ 08.Final.jar libs/netty-codec-4.1.108.Final.jar libs/netty-transport-na
+ tive-unix-common-4.1.108.Final.jar libs/netty-transport-4.1.108.Final.j
+ ar libs/netty-buffer-4.1.108.Final.jar libs/netty-resolver-4.1.108.Fina
+ l.jar libs/netty-common-4.1.108.Final.jar libs/reactor-core-3.6.4.jar l
+ ibs/micronaut-core-reactive-4.4.6.jar libs/reactive-streams-1.0.4.jar l
+ ibs/micronaut-core-4.4.6.jar libs/logback-core-1.5.3.jar libs/velocity-
+ engine-core-2.3.jar libs/slf4j-api-2.0.12.jar libs/jakarta.inject-api-2
+ .0.1.jar libs/commons-lang3-3.11.jar
+Main-Class: example.micronaut.Application
+

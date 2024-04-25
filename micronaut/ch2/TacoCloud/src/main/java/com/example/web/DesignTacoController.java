@@ -1,13 +1,18 @@
 package com.example.web;
 
+import com.example.errorhandling.MessageSource;
 import com.example.model.*;
 import io.micronaut.core.convert.ConversionContext;
+import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.MutableHttpResponse;
 import io.micronaut.http.annotation.*;
+import io.micronaut.http.annotation.Error;
 import io.micronaut.views.ModelAndView;
 import io.micronaut.views.View;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,13 +29,7 @@ public class DesignTacoController {
 
     private IngredientByIdConverter ingredientByIdConverter = new IngredientByIdConverter();
 
-
-//    @Get("/session")
-//    public String checkSessionAttribute(Session session) {
-//
-//        session.put("test", "1.2.3...test my session");
-//        return session.get("test").orElse(null).toString();
-//    }
+    private final MessageSource messageSource = new MessageSource();
 
     @View("design.html")
     @Get("/design")
@@ -38,11 +37,21 @@ public class DesignTacoController {
         return new ModelAndView("design", designOrderModel.getModel());
     }
 
+
+    @View("design.html")
+    @Error(exception = ConstraintViolationException.class)
+    public ModelAndView submitFailed(HttpRequest request, ConstraintViolationException ex){
+        designOrderModel.put("errors", messageSource.violationsMessages(ex.getConstraintViolations()));
+        Optional<DesignOrderForm> cmd = request.getBody(DesignOrderForm.class);
+        return new ModelAndView("design", designOrderModel.getModel());
+    }
+
+
     @Post("/design") // if no "design", controller will redirect to "/"
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
     public MutableHttpResponse<?> processTaco(
             Session session,
-            @Body DesignTacoForm designTacoForm
+            @Valid @Body DesignTacoForm designTacoForm
             ) {
         List<Ingredient> convertIngredients = new ArrayList<>();
         List<String> ingredientsId = designTacoForm.getIngredientsId();

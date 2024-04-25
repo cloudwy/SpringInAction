@@ -59,18 +59,25 @@
     <div>
         <h3>Name your taco creation:</h3>
         <input type="text" name="name"/>
-        <!-- end::all[] -->
-        <!--            <span class="validationError"-->
-        <!--                  th:if="${#fields.hasErrors('name')}"-->
-        <!--                  th:errors="*{name}">Name Error-->
-        <!--            </span>-->
-        <!-- tag::all[] -->
+<!--            <span class="validationnError" th:if = "${#fields.hasErrors('name')}"-->
+<!--                  th:errors="*{name}">"CC Num Error"-->
+<!--            </span>-->
         <br/>
         <button>Submit Your Taco</button>
     </div>
     <!-- tag::closeFormTag[] -->
 </form>
 <!-- end::closeFormTag[] -->
+
+<!--error handling-->
+<div th:if="${errors}">
+    <ul id="errors">
+        <li th:each="error : ${errors}">
+            <span th:text="${error}"></span>
+        </li>
+    </ul>
+</div>
+
 </body>
 </html>
 <!-- end::all[] -->

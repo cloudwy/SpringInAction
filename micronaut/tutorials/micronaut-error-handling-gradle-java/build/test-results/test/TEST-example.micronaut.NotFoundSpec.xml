@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="example.micronaut.NotFoundSpec" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-25T13:34:23" hostname="M08337-01.local" time="0.016">
+  <properties/>
+  <testcase name="verify tenant can be selected works" classname="example.micronaut.NotFoundSpec" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

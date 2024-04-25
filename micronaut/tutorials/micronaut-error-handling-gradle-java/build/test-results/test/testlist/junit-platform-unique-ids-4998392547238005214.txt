@@ -1,0 +1,4 @@
+[engine:spock]/[spec:example.micronaut.BookCreateSpec]/[feature:$spock_feature_1_0]
+[engine:spock]/[spec:example.micronaut.DefaultSpec]/[feature:$spock_feature_0_0]
+[engine:spock]/[spec:example.micronaut.ExceptionHandlerSpec]/[feature:$spock_feature_0_0]
+[engine:spock]/[spec:example.micronaut.NotFoundSpec]/[feature:$spock_feature_1_0]
