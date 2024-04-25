@@ -24,6 +24,8 @@ dependencies {
     implementation("io.micronaut.validation:micronaut-validation") // related to test2 in MessageServiceTest
     implementation("io.micronaut.views:micronaut-views-fieldset")
     implementation("io.micronaut.views:micronaut-views-thymeleaf")
+    // session
+    implementation("io.micronaut.session:micronaut-session") // can't be at the end
 //    implementation("org.thymeleaf:thymeleaf:3.0.11.RELEASE")
     // https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
     implementation("jakarta.validation:jakarta.validation-api")

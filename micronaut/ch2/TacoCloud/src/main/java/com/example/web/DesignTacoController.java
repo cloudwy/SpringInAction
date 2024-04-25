@@ -1,7 +1,6 @@
 package com.example.web;
 
 import com.example.model.*;
-import com.example.model.Ingredient.Type;
 import io.micronaut.core.convert.ConversionContext;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
@@ -9,48 +8,71 @@ import io.micronaut.http.MutableHttpResponse;
 import io.micronaut.http.annotation.*;
 import io.micronaut.views.ModelAndView;
 import io.micronaut.views.View;
+import jakarta.validation.constraints.Null;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.InputStream;
 import java.net.URI;
 import java.util.*;
-import java.util.stream.Collectors;
+
+import io.micronaut.session.Session;
+
 
 @Controller("/")
 public class DesignTacoController {
     private static final Logger log = LoggerFactory.getLogger(DesignTacoController.class);
-    private DesignModel designModel = new DesignModel();
+    private DesignOrderModel designOrderModel = new DesignOrderModel();
 
     private IngredientByIdConverter ingredientByIdConverter = new IngredientByIdConverter();
 
+
+//    @Get("/session")
+//    public String checkSessionAttribute(Session session) {
+//
+//        session.put("test", "1.2.3...test my session");
+//        return session.get("test").orElse(null).toString();
+//    }
+
     @View("design.html")
     @Get("/design")
-    public ModelAndView index() {
-        return new ModelAndView("design", designModel.getModel());
+    public ModelAndView index(
+            Session session
+    ) {
+        session.put("designOrderModel", designOrderModel);
+        return new ModelAndView("design", designOrderModel.getModel());
     }
+
     @Post("/design") // if no "design", controller will redirect to "/"
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
     public MutableHttpResponse<?> processTaco(
-            @Body DesignForm designForm
+            Session session,
+            @Body DesignOrderForm designOrderForm
             ) {
         List<Ingredient> convertIngredients = new ArrayList<>();
-        List<String> ingredientsId = designForm.getIngredientsId();
+        List<String> ingredientsId = designOrderForm.getIngredientsId();
         if (ingredientsId.size() != 0) {
-            for(String item : ingredientsId){
+            for (String item : ingredientsId) {
                 Optional<Ingredient> rel = ingredientByIdConverter.convert(item, Ingredient.class, ConversionContext.DEFAULT);
                 if (rel.isPresent()) {
                     convertIngredients.add(rel.get());
                 }
             }
         }
-        Taco taco = new Taco(designForm.getName(), convertIngredients);
-        designModel.addTacoToOrder(taco);
+        Taco taco = new Taco(designOrderForm.getName(), convertIngredients);
+        designOrderModel.addTacoToOrder(taco);
         log.info("Processing taco: ()", taco);
+        // put in session
+        session.put("tacoOrder", designOrderModel.getModel().get("tacoOrder"));
+//        session.put("testString", "123456");
         // Redirect in Micronaut
-//        return HttpResponse.redirect(URI.create("/orders/current"));
+        return HttpResponse.redirect(URI.create("/orders/current"));
+//        return HttpResponse.ok(session.get("tacoOrder").orElse(null));
 
-        return HttpResponse.ok(designModel.getModel().get("tacoOrder"));
+//        if (!session.contains("tacoOrder")) {
+//            session.put("tacoOrder", designOrderModel.getModel().get("tacoOrder"));
+//        } else {
+//            // session.put("tacoOrder", designOrderModel.getModel().get("tacoOrder"));
+//        }
     }
 
 }

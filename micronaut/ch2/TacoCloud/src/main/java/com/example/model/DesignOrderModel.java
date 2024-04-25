@@ -13,10 +13,10 @@ import java.util.stream.Collectors;
 @Singleton
 @Data
 @Serdeable
-public class DesignModel {
+public class DesignOrderModel {
     private Map<String, Object> model = new HashMap<>();
 
-    public DesignModel() {
+    public DesignOrderModel() {
         addIntegredientList();
         model.put("taco", new Taco());
         model.put("tacoOrder", new TacoOrder());
