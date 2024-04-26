@@ -33,8 +33,9 @@ public class DesignTacoController {
 
     @View("design.html")
     @Get("/design")
-    public ModelAndView index() {
-        return new ModelAndView("design", designOrderModel.getModel());
+    public ModelAndView index(Session session) {
+//        return new ModelAndView("design", designOrderModel.getModel());
+        return new ModelAndView("design", new DesignOrderModel().getModel());
     }
 
 
@@ -42,7 +43,7 @@ public class DesignTacoController {
     @Error(exception = ConstraintViolationException.class)
     public ModelAndView submitFailed(HttpRequest request, ConstraintViolationException ex){
         designOrderModel.put("errors", messageSource.violationsMessages(ex.getConstraintViolations()));
-        Optional<DesignOrderForm> cmd = request.getBody(DesignOrderForm.class);
+        Optional<DesignTacoForm> cmd = request.getBody(DesignTacoForm.class);
         return new ModelAndView("design", designOrderModel.getModel());
     }
 

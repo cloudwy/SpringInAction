@@ -3,6 +3,9 @@ package com.example.errorhandling;
 import jakarta.inject.Singleton;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Path;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -20,12 +23,13 @@ public class MessageSource {
         StringBuilder sb = new StringBuilder();
         Path.Node lastNode = lastNode(violation.getPropertyPath());
         if (lastNode != null) {
-            sb.append(lastNode.getName());
+//            sb.append(lastNode.getName());
             sb.append(" ");
         }
         sb.append(violation.getMessage());
         return sb.toString();
     }
+
 
     private static Path.Node lastNode(Path path) {
         Path.Node lastNode = null;

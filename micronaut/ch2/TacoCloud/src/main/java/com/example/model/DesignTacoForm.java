@@ -14,7 +14,7 @@ public class DesignTacoForm {
     @Size(min=5, message="Name must be at least 5 characters long")
     private String name;
 
-    @NotNull
-    @Size(min=1, message="You must choose at least 1 ingredient")
+    @NotNull(message="You must choose at least 1 ingredient")
+    @Size(min=1)
     private List<String> ingredientsId;
 }
