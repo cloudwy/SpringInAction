@@ -1,0 +1,74 @@
+<!-- tag::allButValidation[] -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Taco Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+
+<body>
+
+<form method="POST" th:action="@{/orders}">
+    <h1>Order your taco creations!</h1>
+
+    <img th:src="@{/images/TacoCloud.png}"/>
+
+    <h3>Your tacos in this order:</h3>
+    <a th:href="@{/design}" id="another">Design another taco</a>
+    <br/>
+    <ul>
+        <li th:each="taco : ${tacoOrder.tacos}">
+            <span th:text="${taco.name}">taco name</span>
+        </li>
+    </ul>
+
+    <!-- tag::allButValidation[] -->
+    <h3>Deliver my taco masterpieces to...</h3>
+    <label for="deliveryName">Name: </label>
+    <input type="text" name="deliveryName" th:value="${tacoOrder.deliveryName}"/>
+    <br/>
+
+    <label for="deliveryStreet">Street address: </label>
+    <input type="text" name="deliveryStreet" th:value="${tacoOrder.deliveryStreet}"/>
+    <br/>
+
+    <label for="deliveryCity">City: </label>
+    <input type="text" name="deliveryCity" th:value="${tacoOrder.deliveryCity}"/>
+    <br/>
+
+    <label for="deliveryState">State: </label>
+    <input type="text" name="deliveryState" th:value="${tacoOrder.deliveryState}"/>
+    <br/>
+
+    <label for="deliveryZip">Zip code: </label>
+    <input type="text" name="deliveryZip" th:value="${tacoOrder.deliveryZip}"/>
+    <br/>
+
+    <h3>Here's how I'll pay...</h3>
+    <!-- tag::validatedField[] -->
+    <label for="ccNumber">Credit Card #: </label>
+    <input type="text" name="ccNumber" th:value="${tacoOrder.ccNumber}"/>
+    <br/>
+
+    <label for="ccExpiration">Expiration: </label>
+    <input type="text" name="ccExpiration" th:value="${tacoOrder.ccExpiration}"/>
+    <br/>
+
+    <label for="ccCVV">CVV: </label>
+    <input type="text" name="ccCVV" th:value="${tacoOrder.ccCVV}"/>
+    <br/>
+
+    <input type="submit" value="Submit Order"/>
+</form>
+<!--error handling-->
+<div th:if="${errors}">
+    <ul id="errors">
+        <li th:each="error : ${errors}">
+            <span th:text="${error}"></span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+<!-- end::allButValidation[] -->
