@@ -1,5 +1,9 @@
-package com.example.model;
+package com.example.dto;
 
+import com.example.dto.DesignTacoForm;
+import com.example.model.Ingredient;
+import com.example.model.Taco;
+import com.example.model.TacoOrder;
 import io.micronaut.serde.annotation.Serdeable;
 import jakarta.inject.Singleton;
 import lombok.Data;

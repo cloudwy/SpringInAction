@@ -66,11 +66,7 @@
 
     <div>
         <h3>Name your taco creation:</h3>
-<!--        <input type="text" name="name"/>-->
         <input type="text" name="name" th:value="${designTacoForm.name}"/>
-<!--            <span class="validationnError" th:if = "${#fields.hasErrors('name')}"-->
-<!--                  th:errors="*{name}">"CC Num Error"-->
-<!--            </span>-->
         <br/>
         <button>Submit Your Taco</button>
     </div>

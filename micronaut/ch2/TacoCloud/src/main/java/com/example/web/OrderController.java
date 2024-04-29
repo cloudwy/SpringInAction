@@ -1,8 +1,8 @@
 package com.example.web;
 
 import com.example.errorhandling.MessageSource;
-import com.example.model.DesignOrderForm;
-import com.example.model.DesignOrderModel;
+import com.example.dto.DesignOrderForm;
+import com.example.dto.DesignOrderModel;
 import com.example.model.TacoOrder;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
@@ -16,8 +16,6 @@ import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import jakarta.validation.Valid;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
@@ -60,14 +58,9 @@ public class OrderController {
         TacoOrder tacoOrder = (TacoOrder) session.get("tacoOrder", TacoOrder.class).orElse(new TacoOrder());
         tacoOrder.copyFromDesignOrderForm(designOrderForm);
         session.put("tacoOrder", tacoOrder);
-//        if (errors.hasErrors()) {
-//            return "orderForm";
-//        }
-
         log.info("Order submitted: {}", tacoOrder);
-//        session.clear();
-
         return HttpResponse.ok(session.get("tacoOrder", TacoOrder.class).orElse(null).toString());
+//        session.clear();
 //        return HttpResponse.redirect(URI.create("/"));
     }
 }

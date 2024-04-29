@@ -1,7 +1,7 @@
 package com.example;
 
 import com.example.model.Ingredient;
-import com.example.model.IngredientByIdConverter;
+import com.example.dto.IngredientByIdConverter;
 import io.micronaut.core.convert.ConversionContext;
 import org.junit.jupiter.api.Test;
 

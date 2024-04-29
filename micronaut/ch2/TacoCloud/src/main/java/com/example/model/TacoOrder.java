@@ -1,5 +1,6 @@
 package com.example.model;
 
+import com.example.dto.DesignOrderForm;
 import io.micronaut.serde.annotation.Serdeable;
 import lombok.Data;
 
@@ -46,7 +47,7 @@ public class TacoOrder {
         this.tacos.add(taco);
     }
 
-    // 从DesignOrderForm复制属性到TacoOrder
+    // copy DesignOrderForm to TacoOrder
     public void copyFromDesignOrderForm(DesignOrderForm designOrderForm) {
         this.deliveryName = designOrderForm.getDeliveryName();
         this.deliveryStreet = designOrderForm.getDeliveryStreet();

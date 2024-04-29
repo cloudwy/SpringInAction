@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.dto;
 
 import io.micronaut.serde.annotation.Serdeable;
 import jakarta.validation.constraints.NotNull;

@@ -1,5 +1,6 @@
-package com.example.model;
+package com.example.dto;
 
+import com.example.model.TacoOrder;
 import io.micronaut.serde.annotation.Serdeable;
 import jakarta.inject.Singleton;
 import lombok.Data;

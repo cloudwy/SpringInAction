@@ -1,5 +1,6 @@
-package com.example.model;
+package com.example.dto;
 
+import com.example.model.Ingredient;
 import io.micronaut.core.convert.ConversionContext;
 import jakarta.inject.Singleton;
 import io.micronaut.core.convert.TypeConverter;
