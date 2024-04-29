@@ -61,8 +61,8 @@ public class OrderController {
 //        }
 
         log.info("Order submitted: {}", tacoOrder);
-        session.clear();
-//
+//        session.clear();
+
         return HttpResponse.ok(session.get("tacoOrder", TacoOrder.class).orElse(null).toString());
 //        return HttpResponse.redirect(URI.create("/"));
     }

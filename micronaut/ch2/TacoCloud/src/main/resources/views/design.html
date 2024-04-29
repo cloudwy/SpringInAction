@@ -19,7 +19,9 @@
             <h3>Designate your wrap:</h3>
                 <div th:each="ingredient : ${wrap}">
                     <input name="ingredientsId" type="checkbox"
-                           th:value="${ingredient.id}"/>
+                           th:value="${ingredient.id}"
+                           th:checked="${designTacoForm.ingredientsId != null && designTacoForm.ingredientsId.contains(ingredient.id)}"
+                    />
                     <span th:text="${ingredient.name}">INGREDIENT</span>
                     <br/>
                 </div>
@@ -29,7 +31,9 @@
             <h3>Choose your cheese:</h3>
                 <div th:each="ingredient : ${cheese}">
                     <input name="ingredientsId" type="checkbox"
-                           th:value="${ingredient.id}"/>
+                           th:value="${ingredient.id}"
+                           th:checked="${designTacoForm.ingredientsId != null && designTacoForm.ingredientsId.contains(ingredient.id)}"
+                    />
                     <span th:text="${ingredient.name}">INGREDIENT</span>
                     <br/>
                 </div>
@@ -39,7 +43,9 @@
             <h3>Determine your veggies:</h3>
             <div th:each="ingredient : ${veggies}">
                 <input name="ingredientsId" type="checkbox"
-                       th:value="${ingredient.id}"/>
+                       th:value="${ingredient.id}"
+                       th:checked="${designTacoForm.ingredientsId != null && designTacoForm.ingredientsId.contains(ingredient.id)}"
+                />
                 <span th:text="${ingredient.name}">INGREDIENT</span>
                 <br/>
             </div>
@@ -49,7 +55,9 @@
             <h3>Select your sauce:</h3>
             <div th:each="ingredient : ${sauce}">
                 <input name="ingredientsId" type="checkbox"
-                       th:value="${ingredient.id}"/>
+                       th:value="${ingredient.id}"
+                       th:checked="${designTacoForm.ingredientsId != null && designTacoForm.ingredientsId.contains(ingredient.id)}"
+                />
                 <span th:text="${ingredient.name}">INGREDIENT</span>
                 <br/>
             </div>
@@ -58,7 +66,8 @@
 
     <div>
         <h3>Name your taco creation:</h3>
-        <input type="text" name="name"/>
+<!--        <input type="text" name="name"/>-->
+        <input type="text" name="name" th:value="${designTacoForm.name}"/>
 <!--            <span class="validationnError" th:if = "${#fields.hasErrors('name')}"-->
 <!--                  th:errors="*{name}">"CC Num Error"-->
 <!--            </span>-->

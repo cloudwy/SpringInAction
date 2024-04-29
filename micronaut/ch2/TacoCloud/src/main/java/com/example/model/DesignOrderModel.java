@@ -18,6 +18,7 @@ public class DesignOrderModel {
 
     public DesignOrderModel() {
         addIntegredientList();
+        model.put("designTacoForm", new DesignTacoForm());
         model.put("taco", new Taco());
         model.put("tacoOrder", new TacoOrder());
     }

@@ -26,9 +26,7 @@ import io.micronaut.session.Session;
 public class DesignTacoController {
     private static final Logger log = LoggerFactory.getLogger(DesignTacoController.class);
     private DesignOrderModel designOrderModel = new DesignOrderModel();
-
     private IngredientByIdConverter ingredientByIdConverter = new IngredientByIdConverter();
-
     private final MessageSource messageSource = new MessageSource();
 
     @View("design.html")
@@ -41,9 +39,13 @@ public class DesignTacoController {
 
     @View("design.html")
     @Error(exception = ConstraintViolationException.class)
-    public ModelAndView submitFailed(HttpRequest request, ConstraintViolationException ex){
+    public ModelAndView submitFailed(
+            HttpRequest request,
+            ConstraintViolationException ex
+            ){
         designOrderModel.put("errors", messageSource.violationsMessages(ex.getConstraintViolations()));
         Optional<DesignTacoForm> cmd = request.getBody(DesignTacoForm.class);
+        cmd.ifPresent(designTacoForm -> designOrderModel.put("designTacoForm", designTacoForm));
         return new ModelAndView("design", designOrderModel.getModel());
     }
 
@@ -54,6 +56,7 @@ public class DesignTacoController {
             Session session,
             @Valid @Body DesignTacoForm designTacoForm
             ) {
+        designOrderModel.put("designTacoForm", designTacoForm);
         List<Ingredient> convertIngredients = new ArrayList<>();
         List<String> ingredientsId = designTacoForm.getIngredientsId();
         if (ingredientsId.size() != 0) {
