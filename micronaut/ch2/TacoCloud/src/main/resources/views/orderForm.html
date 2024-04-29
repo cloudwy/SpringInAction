@@ -34,7 +34,7 @@
     <h3>Deliver my taco masterpieces to...</h3>
     <label for="deliveryName">Name: </label>
 <!--    <input type="text" th:field="*{deliveryName}"/>-->
-    <input type="text" name="deliveryName"/>
+    <input type="text" name="deliveryName" th:value="${tacoOrder.deliveryName}"/>
     <!-- end::allButValidation[] -->
 <!--    <span class="validationError"-->
 <!--          th:if="${#fields.hasErrors('deliveryName')}"-->
@@ -44,7 +44,7 @@
 
     <label for="deliveryStreet">Street address: </label>
 <!--    <input type="text" th:field="*{deliveryStreet}"/>-->
-    <input type="text" name="deliveryStreet"/>
+    <input type="text" name="deliveryStreet" th:value="${tacoOrder.deliveryStreet}"/>
     <!-- end::allButValidation[] -->
 <!--    <span class="validationError"-->
 <!--          th:if="${#fields.hasErrors('deliveryStreet')}"-->
@@ -54,7 +54,7 @@
 
     <label for="deliveryCity">City: </label>
 <!--    <input type="text" th:field="*{deliveryCity}"/>-->
-    <input type="text" name="deliveryCity"/>
+    <input type="text" name="deliveryCity" th:value="${tacoOrder.deliveryCity}"/>
 <!--    &lt;!&ndash; end::allButValidation[] &ndash;&gt;-->
 <!--    <span class="validationError"-->
 <!--          th:if="${#fields.hasErrors('deliveryCity')}"-->
@@ -64,7 +64,7 @@
 
     <label for="deliveryState">State: </label>
 <!--    <input type="text" th:field="*{deliveryState}"/>-->
-    <input type="text" name="deliveryState"/>
+    <input type="text" name="deliveryState" th:value="${tacoOrder.deliveryState}"/>
 <!--    &lt;!&ndash; end::allButValidation[] &ndash;&gt;-->
 <!--    <span class="validationError"-->
 <!--          th:if="${#fields.hasErrors('deliveryState')}"-->
@@ -74,7 +74,7 @@
 
     <label for="deliveryZip">Zip code: </label>
 <!--    <input type="text" th:field="*{deliveryZip}"/>-->
-    <input type="text" name="deliveryZip"/>
+    <input type="text" name="deliveryZip" th:value="${tacoOrder.deliveryZip}"/>
 <!--    &lt;!&ndash; end::allButValidation[] &ndash;&gt;-->
 <!--    <span class="validationError"-->
 <!--          th:if="${#fields.hasErrors('deliveryZip')}"-->
@@ -86,7 +86,7 @@
     <!-- tag::validatedField[] -->
     <label for="ccNumber">Credit Card #: </label>
 <!--    <input type="text" th:field="*{ccNumber}"/>-->
-    <input type="text" name="ccNumber"/>
+    <input type="text" name="ccNumber" th:value="${tacoOrder.ccNumber}"/>
 <!--    &lt;!&ndash; end::allButValidation[] &ndash;&gt;-->
 <!--    <span class="validationError"-->
 <!--          th:if="${#fields.hasErrors('ccNumber')}"-->
@@ -97,7 +97,7 @@
 
     <label for="ccExpiration">Expiration: </label>
 <!--    <input type="text" th:field="*{ccExpiration}"/>-->
-    <input type="text" name="ccExpiration"/>
+    <input type="text" name="ccExpiration" th:value="${tacoOrder.ccExpiration}"/>
 <!--    &lt;!&ndash; end::allButValidation[] &ndash;&gt;-->
 <!--    <span class="validationError"-->
 <!--          th:if="${#fields.hasErrors('ccExpiration')}"-->
@@ -107,7 +107,7 @@
 
     <label for="ccCVV">CVV: </label>
 <!--    <input type="text" th:field="*{ccCVV}"/>-->
-    <input type="text" name="ccCVV"/>
+    <input type="text" name="ccCVV" th:value="${tacoOrder.ccCVV}"/>
 <!--    &lt;!&ndash; end::allButValidation[] &ndash;&gt;-->
 <!--    <span class="validationError"-->
 <!--          th:if="${#fields.hasErrors('ccCVV')}"-->
@@ -117,6 +117,14 @@
 
     <input type="submit" value="Submit Order"/>
 </form>
+<!--error handling-->
+<div th:if="${errors}">
+    <ul id="errors">
+        <li th:each="error : ${errors}">
+            <span th:text="${error}"></span>
+        </li>
+    </ul>
+</div>
 </body>
 </html>
 <!-- end::allButValidation[] -->

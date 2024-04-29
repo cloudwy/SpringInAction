@@ -9,7 +9,7 @@ import java.util.List;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import org.hibernate.validator.constraints.CreditCardNumber;
+//import org.hibernate.validator.constraints.CreditCardNumber;
 
 @Data
 @Serdeable
@@ -29,7 +29,8 @@ public class TacoOrder {
     @NotBlank(message="Zip code is required")
     private String deliveryZip;
 
-    @CreditCardNumber(message="Not a valid credit card number")
+//    @CreditCardNumber(message="Not a valid credit card number")
+    @NotBlank(message="Credit Card Number is required")
     private String ccNumber;
 
     @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$",

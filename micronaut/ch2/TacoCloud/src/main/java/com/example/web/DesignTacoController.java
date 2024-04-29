@@ -25,7 +25,7 @@ import io.micronaut.session.Session;
 @Controller("/")
 public class DesignTacoController {
     private static final Logger log = LoggerFactory.getLogger(DesignTacoController.class);
-    private DesignOrderModel designOrderModel = new DesignOrderModel();
+    private DesignTacoModel designTacoModel = new DesignTacoModel();
     private IngredientByIdConverter ingredientByIdConverter = new IngredientByIdConverter();
     private final MessageSource messageSource = new MessageSource();
 
@@ -33,7 +33,7 @@ public class DesignTacoController {
     @Get("/design")
     public ModelAndView index(Session session) {
 //        return new ModelAndView("design", designOrderModel.getModel());
-        return new ModelAndView("design", new DesignOrderModel().getModel());
+        return new ModelAndView("design", new DesignTacoModel().getModel());
     }
 
 
@@ -43,10 +43,10 @@ public class DesignTacoController {
             HttpRequest request,
             ConstraintViolationException ex
             ){
-        designOrderModel.put("errors", messageSource.violationsMessages(ex.getConstraintViolations()));
+        designTacoModel.put("errors", messageSource.violationsMessages(ex.getConstraintViolations()));
         Optional<DesignTacoForm> cmd = request.getBody(DesignTacoForm.class);
-        cmd.ifPresent(designTacoForm -> designOrderModel.put("designTacoForm", designTacoForm));
-        return new ModelAndView("design", designOrderModel.getModel());
+        cmd.ifPresent(designTacoForm -> designTacoModel.put("designTacoForm", designTacoForm));
+        return new ModelAndView("design", designTacoModel.getModel());
     }
 
 
@@ -56,7 +56,7 @@ public class DesignTacoController {
             Session session,
             @Valid @Body DesignTacoForm designTacoForm
             ) {
-        designOrderModel.put("designTacoForm", designTacoForm);
+        designTacoModel.put("designTacoForm", designTacoForm);
         List<Ingredient> convertIngredients = new ArrayList<>();
         List<String> ingredientsId = designTacoForm.getIngredientsId();
         if (ingredientsId.size() != 0) {
@@ -68,10 +68,10 @@ public class DesignTacoController {
             }
         }
         Taco taco = new Taco(designTacoForm.getName(), convertIngredients);
-        designOrderModel.addTacoToOrder(taco);
+        designTacoModel.addTacoToOrder(taco);
         log.info("Processing taco: ()", taco);
         // put in session
-        session.put("tacoOrder", designOrderModel.getModel().get("tacoOrder"));
+        session.put("tacoOrder", designTacoModel.getModel().get("tacoOrder"));
         // Redirect in Micronaut
         return HttpResponse.redirect(URI.create("/orders/current"));
     }
