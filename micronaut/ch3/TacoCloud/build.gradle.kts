@@ -12,37 +12,59 @@ repositories {
 }
 
 dependencies {
+//    //lombok
+//    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+//    compileOnly("org.projectlombok:lombok") //important for @Data
+//    annotationProcessor("org.projectlombok:lombok") ////important for @Data
+//    // https://mvnrepository.com/artifact/io.micronaut/micronaut-inject-java
+//    annotationProcessor("io.micronaut:micronaut-inject-java")
+//    annotationProcessor("io.micronaut:micronaut-http-validation")
+//    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+//    annotationProcessor("io.micronaut.validation:micronaut-validation-processor") // related to test2 in MessageServiceTest
+//    runtimeOnly("com.h2database:h2")
+//    // end data
+//    implementation("io.micronaut.serde:micronaut-serde-jackson")
+//    implementation("io.micronaut.validation:micronaut-validation") // related to test2 in MessageServiceTest
+//    implementation("io.micronaut.views:micronaut-views-fieldset")
+//    implementation("io.micronaut.views:micronaut-views-thymeleaf")
+//    // session
+//    implementation("io.micronaut.session:micronaut-session") // can't be at the end
+//    // https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
+//    implementation("jakarta.validation:jakarta.validation-api")
+//    compileOnly("io.micronaut:micronaut-http-client")
+//    runtimeOnly("ch.qos.logback:logback-classic")
+//    testImplementation("io.micronaut:micronaut-http-client")
+//    // https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
+////    implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
+//    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+//    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+//    // https://mvnrepository.com/artifact/io.micronaut/micronaut-session
+//    implementation("io.micronaut:micronaut-session:3.10.4")
+//    // ModelAndView
+//    // https://mvnrepository.com/artifact/io.micronaut/micronaut-http-server
+//    implementation("io.micronaut:micronaut-http-server:4.4.1")
+//    // https://mvnrepository.com/artifact/io.micronaut/micronaut-views
+//    implementation("io.micronaut:micronaut-views:1.3.2")
+//    // core
+//    implementation("io.micronaut:micronaut-core")
+
+
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly("org.projectlombok:lombok") //important for @Data
     annotationProcessor("org.projectlombok:lombok") ////important for @Data
-    // https://mvnrepository.com/artifact/io.micronaut/micronaut-inject-java
-    annotationProcessor("io.micronaut:micronaut-inject-java")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut:micronaut-http-validation")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
-    annotationProcessor("io.micronaut.validation:micronaut-validation-processor") // related to test2 in MessageServiceTest
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
-    implementation("io.micronaut.validation:micronaut-validation") // related to test2 in MessageServiceTest
-    implementation("io.micronaut.views:micronaut-views-fieldset")
-    implementation("io.micronaut.views:micronaut-views-thymeleaf")
-    // session
-    implementation("io.micronaut.session:micronaut-session") // can't be at the end
-//    implementation("org.thymeleaf:thymeleaf:3.0.11.RELEASE")
-    // https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
-    implementation("jakarta.validation:jakarta.validation-api")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
+    runtimeOnly("com.h2database:h2")
     testImplementation("io.micronaut:micronaut-http-client")
-    // https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
-    implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
-    // https://mvnrepository.com/artifact/io.micronaut/micronaut-session
-    implementation("io.micronaut:micronaut-session:3.10.4")
-    // ModelAndView
-    // https://mvnrepository.com/artifact/io.micronaut/micronaut-http-server
-    implementation("io.micronaut:micronaut-http-server:4.4.1")
-    // https://mvnrepository.com/artifact/io.micronaut/micronaut-views
-    implementation("io.micronaut:micronaut-views:1.3.2")
-    // core
-    implementation("io.micronaut:micronaut-core")
+    runtimeOnly("org.yaml:snakeyaml") //for application.yml
+    // https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
+    implementation("jakarta.validation:jakarta.validation-api")
 }
 
 
