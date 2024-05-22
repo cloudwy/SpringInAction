@@ -5,14 +5,20 @@ import io.micronaut.context.annotation.Context;
 import jakarta.inject.Inject;
 import com.example.model.Ingredient.Type;
 
+import static io.micronaut.data.model.query.factory.Projections.count;
+
 @Context
 public class DataLoader {
-    private final IngredientRepository ingredientRepository;
+    private IngredientRepository ingredientRepository;
 
     @Inject
     public DataLoader(IngredientRepository ingredientRepository) {
         this.ingredientRepository = ingredientRepository;
-        loadData();
+        if (ingredientRepository.count() == 0) {
+            loadData();
+        }
+        System.out.println("Loaded " + ingredientRepository.count() + " ingredients");
+//        System.out.println(ingredientRepository.findAll());
     }
 
     private void loadData() {

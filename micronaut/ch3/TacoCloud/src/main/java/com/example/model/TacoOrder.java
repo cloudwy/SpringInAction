@@ -11,7 +11,7 @@ import java.util.List;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-//import com.example.dto.DesignOrderForm;
+import com.example.dto.DesignOrderForm;
 //import org.hibernate.validator.constraints.CreditCardNumber;
 
 @Data
@@ -19,7 +19,7 @@ import jakarta.validation.constraints.Pattern;
 @Entity
 public class TacoOrder {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private Date placedAt = new Date();
@@ -58,15 +58,15 @@ public class TacoOrder {
         this.tacos.add(taco);
     }
 
-//    // copy DesignOrderForm to TacoOrder
-//    public void copyFromDesignOrderForm(DesignOrderForm designOrderForm) {
-//        this.deliveryName = designOrderForm.getDeliveryName();
-//        this.deliveryStreet = designOrderForm.getDeliveryStreet();
-//        this.deliveryCity = designOrderForm.getDeliveryCity();
-//        this.deliveryState = designOrderForm.getDeliveryState();
-//        this.deliveryZip = designOrderForm.getDeliveryZip();
-//        this.ccNumber = designOrderForm.getCcNumber();
-//        this.ccExpiration = designOrderForm.getCcExpiration();
-//        this.ccCVV = designOrderForm.getCcCVV();
-//    }
+    // copy DesignOrderForm to TacoOrder
+    public void copyFromDesignOrderForm(DesignOrderForm designOrderForm) {
+        this.deliveryName = designOrderForm.getDeliveryName();
+        this.deliveryStreet = designOrderForm.getDeliveryStreet();
+        this.deliveryCity = designOrderForm.getDeliveryCity();
+        this.deliveryState = designOrderForm.getDeliveryState();
+        this.deliveryZip = designOrderForm.getDeliveryZip();
+        this.ccNumber = designOrderForm.getCcNumber();
+        this.ccExpiration = designOrderForm.getCcExpiration();
+        this.ccCVV = designOrderForm.getCcCVV();
+    }
 }

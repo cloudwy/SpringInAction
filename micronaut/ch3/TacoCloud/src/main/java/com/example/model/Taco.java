@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 //import io.micronaut.serde.annotation.Serdeable;
+import io.micronaut.serde.annotation.Serdeable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -15,9 +16,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Serdeable
 public class Taco {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private Date createdAt = new Date();
@@ -29,6 +31,11 @@ public class Taco {
     @Size(min=1, message="You must choose at least 1 ingredient")
     @ManyToMany()
     private List<Ingredient> ingredients;
+
+    public Taco(String name, List<Ingredient> ingredients) {
+        this.name = name;
+        this.ingredients = ingredients;
+    }
 
     public void addIngredient(Ingredient ingredient){
         this.ingredients.add(ingredient);
