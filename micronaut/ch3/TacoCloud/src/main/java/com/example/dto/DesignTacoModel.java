@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 @Data
 @Serdeable
 public class DesignTacoModel {
+
     private Map<String, Object> model = new HashMap<>();
     private IngredientRepository ingredientRepo;
 
@@ -29,6 +30,9 @@ public class DesignTacoModel {
         model.put("tacoOrder", new TacoOrder());
     }
 
+    // why this method didn't work?
+//    @Inject
+//    private IngredientRepository ingredientRepo;
 //    public DesignTacoModel() {
 //        addIntegredientList();
 //        model.put("designTacoForm", new DesignTacoForm());
@@ -47,40 +51,6 @@ public class DesignTacoModel {
         }
     }
 
-//    private void addIntegredientList(){
-//        List<Ingredient> ingredients = Arrays.asList(
-//                new Ingredient("FLTO", "Flour Tortilla", Ingredient.Type.WRAP),
-//                new Ingredient("COTO", "Corn Tortilla", Ingredient.Type.WRAP),
-//                new Ingredient("GRBF", "Ground Beef", Ingredient.Type.PROTEIN),
-//                new Ingredient("CARN", "Carnitas", Ingredient.Type.PROTEIN),
-//                new Ingredient("TMTO", "Diced Tomatoes", Ingredient.Type.VEGGIES),
-//                new Ingredient("LETC", "Lettuce", Ingredient.Type.VEGGIES),
-//                new Ingredient("CHED", "Cheddar", Ingredient.Type.CHEESE),
-//                new Ingredient("JACK", "Monterrey Jack", Ingredient.Type.CHEESE),
-//                new Ingredient("SLSA", "Salsa", Ingredient.Type.SAUCE),
-//                new Ingredient("SRCR", "Sour Cream", Ingredient.Type.SAUCE)
-//        );
-//        Ingredient.Type[] types = Ingredient.Type.values();
-//        for (Ingredient.Type type : types) {
-//            model.put(type.toString().toLowerCase(),
-//                    filterByType(ingredients, type));
-//        }
-//    }
-
-    public void put(String key, Object value){
-        model.put(key, value);
-    }
-
-    public void addTacoToOrder(Taco taco){
-        model.put("taco", taco);
-        TacoOrder tacoOrder = (TacoOrder) model.get("tacoOrder");
-        tacoOrder.addTaco(taco);
-        model.put("tacoOrder", tacoOrder);
-    }
-
-    public void clearTacoFromOrder(){
-        model.put("tacoOrder", new TacoOrder());
-    }
 
     private Iterable<Ingredient> filterByType(
             List<Ingredient> ingredients, Ingredient.Type type) {
@@ -90,9 +60,27 @@ public class DesignTacoModel {
                 .collect(Collectors.toList());
     }
 
+
+    public void put(String key, Object value){
+        model.put(key, value);
+    }
+
+
+    public void addTacoToOrder(Taco taco){
+        model.put("taco", taco);
+        TacoOrder tacoOrder = (TacoOrder) model.get("tacoOrder");
+        tacoOrder.addTaco(taco);
+        model.put("tacoOrder", tacoOrder);
+    }
+
+
+    public void clearTacoFromOrder(){
+        model.put("tacoOrder", new TacoOrder());
+    }
+
+
     public void clearAll(){
         model.clear();
     }
-
 
 }

@@ -12,6 +12,7 @@ import java.util.Map;
 @Data
 @Serdeable
 public class DesignOrderModel {
+
     private Map<String, Object> model = new HashMap<>();
 
     public DesignOrderModel() {

@@ -34,14 +34,7 @@ public class OrderController {
     @Inject
     private DesignTacoModel designTacoModel;
 
-//    @Inject
-//    public OrderController(OrderRepository orderRepository, DesignOrderModel designOrderModel, MessageSource messageSource) {
-//        this.orderRepository = orderRepository;
-//        this.designOrderModel = designOrderModel;
-//        this.messageSource = messageSource;
-//    }
 
-    //for test
     @View("orderForm.html")
     @Get("/current")
     public ModelAndView orderForm(Session session){
@@ -51,14 +44,6 @@ public class OrderController {
         return new ModelAndView("order", designOrderModel.getModel());
     }
 
-//    @View("orderForm.html")
-//    @Get("/current")
-//    public ModelAndView orderForm(Session session){
-//        TacoOrder tacoOrder = session.get("tacoOrder", TacoOrder.class).orElse(new TacoOrder());
-//        designOrderModel.put("tacoOrder", tacoOrder);
-//        System.out.println("tacoOrder Info: " + designOrderModel.getModel().get("tacoOrder"));
-//        return new ModelAndView("order", designOrderModel.getModel());
-//    }
 
     @View("orderForm.html")
     @Error(exception = ConstraintViolationException.class)
@@ -75,26 +60,6 @@ public class OrderController {
     }
 
 
-    //for test
-//    @Post()
-//    @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
-//    public String processOrder(
-//            @Valid @Body DesignOrderForm designOrderForm,
-//            Session session
-//    ) {
-//        return designOrderForm.toString();
-//    }
-
-//    @Post()
-//    @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
-//    public HttpResponse<?> processOrder(
-//            @Valid @Body DesignOrderForm designOrderForm,
-//            Session session
-//    ) {
-//        return HttpResponse.redirect(URI.create("/home"));
-//    }
-
-
     @Post()
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
     public HttpResponse<?> processOrder(
@@ -103,12 +68,15 @@ public class OrderController {
     ) {
         TacoOrder tacoOrder =  session.get("tacoOrder", TacoOrder.class).orElse(new TacoOrder());
         tacoOrder.copyFromDesignOrderForm(designOrderForm);
-        session.put("tacoOrder", tacoOrder);
+//        session.put("tacoOrder", tacoOrder);
         orderRepository.save(tacoOrder);
         log.info("Order submitted: {}", tacoOrder);
+        //clear session
         session.clear();
         // clear tacoOrder Info
         designTacoModel.clearTacoFromOrder();
         return HttpResponse.redirect(URI.create("/home"));
     }
+
+
 }

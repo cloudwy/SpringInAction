@@ -47,30 +47,12 @@ public class DesignTacoController {
     @Inject
     private IngredientRepository ingredientRepository;
 
-//    @Inject
-//    public DesignTacoController(
-//            DesignTacoModel designTacoModel,
-//            IngredientByIdConverter ingredientByIdConverter,
-//            MessageSource messageSource,
-//            IngredientRepository ingredientRepository
-//            ){
-//        this.designTacoModel = designTacoModel;
-//        this.ingredientByIdConverter = ingredientByIdConverter;
-//        this.messageSource = messageSource;
-//        this.ingredientRepository = ingredientRepository;
-//    }
-
     @View("design.html")
     @Get("/design")
     public ModelAndView index() {
         return new ModelAndView("design", new DesignTacoModel(ingredientRepository).getModel());
     }
 
-//    // for test
-//    @Get("/design")
-//    public String index() {
-//        return new DesignOrderModel().getModel().toString();
-//    }
 
     @View("design.html")
     @Error(exception = ConstraintViolationException.class)
@@ -83,15 +65,6 @@ public class DesignTacoController {
         cmd.ifPresent(designTacoForm -> designTacoModel.put("designTacoForm", designTacoForm));
         return new ModelAndView("design", designTacoModel.getModel());
     }
-
-//    //for test
-//    @Post("/design") // if no "design", controller will redirect to "/"
-//    @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
-//    public String processTaco(
-//            @Valid @Body DesignTacoForm designTacoForm
-//            ) {
-//        return designTacoForm.toString();
-//    }
 
 
     @Post("/design") // if no "design", controller will redirect to "/"
@@ -119,30 +92,4 @@ public class DesignTacoController {
         // Redirect in Micronaut
         return HttpResponse.redirect(URI.create("/orders/current"));
     }
-
-//    @Post("/design") // if no "design", controller will redirect to "/"
-//    @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
-//    public String processTaco(
-//            Session session,
-//            @Valid @Body DesignTacoForm designTacoForm
-//    ) {
-//        designTacoModel.put("designTacoForm", designTacoForm);
-//        List<Ingredient> convertIngredients = new ArrayList<>();
-//        List<String> ingredientsId = designTacoForm.getIngredientsId();
-//        if (ingredientsId.size() != 0) {
-//            for (String item : ingredientsId) {
-//                Optional<Ingredient> rel = ingredientByIdConverter.convert(item, Ingredient.class, ConversionContext.DEFAULT);
-//                if (rel.isPresent()) {
-//                    convertIngredients.add(rel.get());
-//                }
-//            }
-//        }
-//        Taco taco = new Taco(designTacoForm.getName(), convertIngredients);
-//        designTacoModel.addTacoToOrder(taco);
-//        log.info("Processing taco: ()", taco);
-//        // put in session
-//        session.put("tacoOrder", designTacoModel.getModel().get("tacoOrder"));
-//        // Redirect in Micronaut
-//        return designTacoModel.getModel().toString();
-//    }
 }
