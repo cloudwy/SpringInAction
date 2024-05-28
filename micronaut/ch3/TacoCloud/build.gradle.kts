@@ -81,8 +81,16 @@ dependencies {
     implementation("io.micronaut:micronaut-core")
     //for application.yml
     runtimeOnly("org.yaml:snakeyaml")
+    //jsoup
+    implementation("org.jsoup:jsoup:1.14.2")
     //test
     testImplementation("io.micronaut:micronaut-http-client")
+    testImplementation("io.micronaut.test:micronaut-test-junit5")
+    testImplementation("org.mockito:mockito-core:4.8.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.seleniumhq.selenium:selenium-java:3.141.59") //selenium
+    testImplementation("io.micronaut:micronaut-test") // port
 }
 
 

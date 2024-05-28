@@ -75,7 +75,7 @@ public class OrderController {
         session.clear();
         // clear tacoOrder Info
         designTacoModel.clearTacoFromOrder();
-        return HttpResponse.redirect(URI.create("/home"));
+        return HttpResponse.redirect(URI.create("/"));
     }
 
 

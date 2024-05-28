@@ -10,7 +10,7 @@ import com.example.dto.DesignTacoModel;
 import io.micronaut.views.ModelAndView;
 import io.micronaut.views.View;
 import io.micronaut.session.Session;
-import com.example.dto.IngredientByIdConverter;
+import com.example.adapter.IngredientByIdConverter;
 import com.example.errorhandling.MessageSource;
 import com.example.dto.DesignTacoForm;
 import com.example.model.*;

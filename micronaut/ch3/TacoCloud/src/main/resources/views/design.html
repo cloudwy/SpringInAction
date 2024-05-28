@@ -17,7 +17,7 @@
     <div class="grid">
         <div class="ingredient-group" id="wraps">
             <h3>Designate your wrap:</h3>
-                <div th:each="ingredient : ${wrap}">
+                <div class="wrap" th:each="ingredient : ${wrap}">
                     <input name="ingredientsId" type="checkbox"
                            th:value="${ingredient.id}"
                            th:checked="${designTacoForm.ingredientsId != null && designTacoForm.ingredientsId.contains(ingredient.id)}"
@@ -27,9 +27,21 @@
                 </div>
         </div>
 
+        <div class="ingredient-group" id="proteins">
+            <h3>Pick your protein:</h3>
+            <div class="protein" th:each="ingredient : ${protein}">
+                <input name="ingredientsId" type="checkbox"
+                       th:value="${ingredient.id}"
+                       th:checked="${designTacoForm.ingredientsId != null && designTacoForm.ingredientsId.contains(ingredient.id)}"
+                />
+                <span th:text="${ingredient.name}">INGREDIENT</span>
+                <br/>
+            </div>
+        </div>
+
         <div class="ingredient-group" id="cheeses">
             <h3>Choose your cheese:</h3>
-                <div th:each="ingredient : ${cheese}">
+                <div class="cheese" th:each="ingredient : ${cheese}">
                     <input name="ingredientsId" type="checkbox"
                            th:value="${ingredient.id}"
                            th:checked="${designTacoForm.ingredientsId != null && designTacoForm.ingredientsId.contains(ingredient.id)}"
@@ -41,7 +53,7 @@
 
         <div class="ingredient-group" id="veggies">
             <h3>Determine your veggies:</h3>
-            <div th:each="ingredient : ${veggies}">
+            <div class="veggies" th:each="ingredient : ${veggies}">
                 <input name="ingredientsId" type="checkbox"
                        th:value="${ingredient.id}"
                        th:checked="${designTacoForm.ingredientsId != null && designTacoForm.ingredientsId.contains(ingredient.id)}"
@@ -53,7 +65,7 @@
 
         <div class="ingredient-group" id="sauces">
             <h3>Select your sauce:</h3>
-            <div th:each="ingredient : ${sauce}">
+            <div class="sauce" th:each="ingredient : ${sauce}">
                 <input name="ingredientsId" type="checkbox"
                        th:value="${ingredient.id}"
                        th:checked="${designTacoForm.ingredientsId != null && designTacoForm.ingredientsId.contains(ingredient.id)}"
@@ -64,7 +76,7 @@
         </div>
     </div>
 
-    <div>
+    <div id="submitButton">
         <h3>Name your taco creation:</h3>
         <input type="text" name="name" th:value="${designTacoForm.name}"/>
         <br/>

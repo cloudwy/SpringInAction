@@ -1,14 +1,11 @@
-package com.example.dto;
+package com.example.adapter;
 
-import com.example.adapter.IngredientRepository;
 import com.example.model.Ingredient;
 import io.micronaut.core.convert.ConversionContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import io.micronaut.core.convert.TypeConverter;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @Singleton

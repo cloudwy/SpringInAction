@@ -14,7 +14,7 @@ import java.util.UUID;
 
 import static io.micronaut.http.MediaType.TEXT_HTML;
 
-@Controller("/home")
+@Controller("/")
 public class HomeController {
 
     @Inject
