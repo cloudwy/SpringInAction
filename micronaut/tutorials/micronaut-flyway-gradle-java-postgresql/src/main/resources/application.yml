@@ -1,0 +1,32 @@
+micronaut:
+  server:
+    port: 8080
+  application:
+    name: mn-data-pg
+
+jackson:
+  bean-introspection-module: true
+
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:3036/db
+    driverClassName: org.postgresql.Driver
+    username: ssa
+    password: 'test'
+    dialect: POSTGRES
+
+---
+jpa:
+  default:
+    properties:
+      hibernate:
+        bytecode:
+          provider: none
+        hbm2ddl:
+          auto: validate
+        show_sql: true
+
+flyway:
+  datasources:
+    default:
+      enabled: true

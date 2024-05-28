@@ -1,0 +1,52 @@
+micronaut:
+    server:
+        port: 8080
+    application:
+        name: micronautguide
+
+jackson:
+    bean-introspection-module: true
+
+datasources:
+    default:
+        url: jdbc:mysql://localhost:3306/db
+        driverClassName: com.mysql.cj.jdbc.Driver
+        username: ssa
+        password: 'test'
+        dialect: MYSQL
+
+---
+jpa:
+    default:
+        properties:
+            hibernate:
+                bytecode:
+                    provider: none
+                hbm2ddl:
+                    auto: validate
+                show_sql: true
+
+flyway:
+    datasources:
+        default:
+            enabled: true
+
+#datasources:
+#    default:
+#        db-type: mysql
+#        url: jdbc:mysql://localhost:3306/db
+#        username: ssa
+#        password: test
+#        dialect: MYSQL
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#endpoints:
+#    flyway:
+#        enabled: true
+#        sensitive: false
+#flyway:
+#    datasources:
+#        default:
+#            enabled: true
+#micronaut:
+#    application:
+#        name: micronautguide

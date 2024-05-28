@@ -1,0 +1,16 @@
+datasources:
+    default:
+        dialect: H2
+        driver-class-name: org.h2.Driver
+        password: ''
+        url: jdbc:h2:files:/Users/yunwu/IdeaProjects/SpringInAction/micronaut/tutorials/replace-h2-with-real-database-for-testing-gradle-java/h2/src/main/resources/data/example;AUTO_SERVER=true
+        username: sa
+jpa:
+    default:
+        properties:
+            hibernate:
+                hbm2ddl:
+                    auto: update
+micronaut:
+    application:
+        name: micronautguide

@@ -1,0 +1,1 @@
+{"groups":[{"name":"application","type":"example.micronaut.ApplicationConfigurationProperties"}],"properties":[{"name":"application.max","type":"int","sourceType":"example.micronaut.ApplicationConfigurationProperties"},{"name":"application.max","type":"int","sourceType":"example.micronaut.ApplicationConfigurationProperties"}]}

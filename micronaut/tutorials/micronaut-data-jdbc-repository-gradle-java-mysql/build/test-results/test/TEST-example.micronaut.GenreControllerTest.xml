@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="example.micronaut.GenreControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-30T14:23:34" hostname="M08337-01.local" time="0.336">
+  <properties/>
+  <testcase name="testGenreCrudOperations()" classname="example.micronaut.GenreControllerTest" time="0.336"/>
+  <system-out><![CDATA[?[36m16:23:33.991?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mi.m.c.DefaultApplicationContext$RuntimeConfiguredEnvironment?[0;39m - Established active environments: [test]
+?[36m16:23:34.108?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mi.m.s.ObjectMappers$ObjectMapperContext$1?[0;39m - Established active environments: [test]
+?[36m16:23:34.280?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mcom.zaxxer.hikari.HikariDataSource?[0;39m - HikariPool-1 - Starting...
+?[36m16:23:34.531?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mcom.zaxxer.hikari.pool.HikariPool?[0;39m - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7d2998d8
+?[36m16:23:34.532?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mcom.zaxxer.hikari.HikariDataSource?[0;39m - HikariPool-1 - Start completed.
+?[36m16:23:34.630?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mi.m.flyway.AbstractFlywayMigration?[0;39m - Running migrations for database with qualifier [default]
+?[36m16:23:34.668?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35morg.flywaydb.core.FlywayExecutor?[0;39m - Database: jdbc:mysql://localhost:3306/db (MySQL 8.3)
+?[36m16:23:34.701?[0;39m ?[1;30m[Test worker]?[0;39m ?[31mWARN ?[0;39m ?[35mo.f.c.i.database.base.Database?[0;39m - Flyway upgrade recommended: MySQL 8.3 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+?[36m16:23:34.730?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mo.f.core.internal.command.DbValidate?[0;39m - Successfully validated 1 migration (execution time 00:00.020s)
+?[36m16:23:34.747?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mo.f.core.internal.command.DbMigrate?[0;39m - Current version of schema `db`: 1
+?[36m16:23:34.749?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mo.f.core.internal.command.DbMigrate?[0;39m - Schema `db` is up to date. No migration necessary.
+?[36m16:23:35.314?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mcom.zaxxer.hikari.HikariDataSource?[0;39m - HikariPool-1 - Shutdown initiated...
+?[36m16:23:35.318?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mcom.zaxxer.hikari.HikariDataSource?[0;39m - HikariPool-1 - Shutdown completed.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

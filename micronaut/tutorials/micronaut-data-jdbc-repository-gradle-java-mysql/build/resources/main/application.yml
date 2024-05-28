@@ -1,0 +1,16 @@
+datasources:
+    default:
+        url: jdbc:mysql://localhost:3306/db
+        username: ssa
+        password: test
+        dialect: MYSQL
+        driver-class-name: com.mysql.cj.jdbc.Driver
+flyway:
+    datasources:
+        default:
+            enabled: true
+micronaut:
+    application:
+        name: micronautguide
+
+

@@ -1,0 +1,36 @@
+micronaut:
+  application:
+    name: micronautguide
+---
+#tag::application[]
+application:
+  max: 50
+    #end::application[]
+---
+#tag::datasource[]
+datasources:
+  default:
+#    url: ${JDBC_URL:`jdbc:h2:mem:default;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
+#    username: ${JDBC_USER:sa}
+#    password: ${JDBC_PASSWORD:""}
+#    driverClassName: ${JDBC_DRIVER:org.h2.Driver}
+
+    url: jdbc:h2:file:/Users/yunwu/IdeaProjects/SpringInAction/micronaut/tutorials/micronaut-jpa-hibernate-gradle-java/src/main/resources/data/h2db;AUTO_SERVER=true
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+#end::datasource[]
+---
+#tag::jpa[]
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+#end::jpa
+#h2:
+#  console:
+#    enabled: true
+#    web-allow-others: true
