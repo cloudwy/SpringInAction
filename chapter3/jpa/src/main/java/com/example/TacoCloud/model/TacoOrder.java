@@ -1,6 +1,5 @@
 package com.example.TacoCloud.model;
 
-import com.example.TacoCloud.model.Taco;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -43,7 +42,8 @@ public class TacoOrder implements Serializable {
     @NotBlank(message="Zip code is required")
     private String deliveryZip;
 
-    @CreditCardNumber(message="Not a valid credit card number")
+//    @CreditCardNumber(message="Not a valid credit card number")
+    @Digits(integer = 16, fraction = 0)
     private String ccNumber;
 
     @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$", message="Must be formatted MM/YY")
