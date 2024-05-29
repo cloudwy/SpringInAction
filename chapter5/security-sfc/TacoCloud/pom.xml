@@ -86,11 +86,12 @@
 			<groupId>jakarta.persistence</groupId>
 			<artifactId>jakarta.persistence-api</artifactId>
 		</dependency>
-		<!-- security -->
+		<!-- tag::springSecurity[] -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		<!-- end::springSecurity[] -->
 	</dependencies>
 
 	<build>
